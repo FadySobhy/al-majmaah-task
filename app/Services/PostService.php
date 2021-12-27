@@ -30,7 +30,7 @@ class PostService
             $post->user_id = auth()->user()->id;
             $this->postRepository->save($post);
 
-            if (!empty($request->images) && $request->images[0] != null) {
+            if ($request->images) {
                 foreach ($request->images as $image) {
                     PostImage::create([
                         'image' => $this->uploadImage($image, 'uploads/posts'),
