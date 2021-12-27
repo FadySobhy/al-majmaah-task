@@ -16,7 +16,6 @@ class PostController extends Controller
     }
 
     public function store(PostRequest $postRequest) {
-//        dd($postRequest->images);
         $this->postService->store($postRequest);
         return redirect()->back();
     }
